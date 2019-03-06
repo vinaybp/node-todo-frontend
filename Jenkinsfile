@@ -1,7 +1,7 @@
 pipeline {
   environment{
-    registry = "mazuma5/pipeline-project"
-    registryCredential = 'Dockerhub'
+    registry = "vinay4790/testrepo"
+    registryCredential = 'dockerhub'
     dockerImage = ''
     containerId = sh(script: 'docker ps -aqf "name=node-app"', returnStdout:true)
   }
