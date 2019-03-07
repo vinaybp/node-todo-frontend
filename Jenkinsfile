@@ -3,7 +3,11 @@ pipeline {
     registry = "vinay4790/testrepo"
     registryCredential = 'dockerhub'
     dockerImage = ''
-    containerId = sh(script: 'docker ps -aqf "name=node-app"', returnStdout:true)
+    containerId = sh(script: 'docker ps -aqf "name=node-app"', returnStdout:true)	
+	  server = 'jfrog'
+	  rtDocker = Artifactory.docker server: server
+	  buildInfo = rtDocker.push 'http://52.172.31.12:8081/artifactory', 'example-repo-local'
+   
   }
   agent any
   tools {nodejs "node"}
@@ -60,11 +64,8 @@ pipeline {
     }
     
     stage('Upload Artifactory'){
-    steps{
-	    node() {
-      def server = 'jfrog'
-		  def rtDocker = Artifactory.docker server: server
-		  def buildInfo = rtDocker.push 'http://52.172.31.12:8081/artifactory', 'example-repo-local'
+    steps{  
+		  
 		  server.publishBuildInfo buildInfo
 	    }
     }
