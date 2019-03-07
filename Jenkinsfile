@@ -4,9 +4,7 @@ pipeline {
     registryCredential = 'dockerhub'
     dockerImage = ''
     containerId = sh(script: 'docker ps -aqf "name=node-app"', returnStdout:true)	
-	  server = 'jfrog'
-	  rtDocker = Artifactory.docker server: server
-	  buildInfo = rtDocker.push 'http://52.172.31.12:8081/artifactory', 'example-repo-local'
+	 
    
   }
   agent any
@@ -33,7 +31,7 @@ pipeline {
     stage('Building Image'){
       steps{
         script{
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry + ":$BUILD_NUMBER" .
         }
       }
     }
