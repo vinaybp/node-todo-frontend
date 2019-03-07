@@ -69,6 +69,6 @@ pipeline {
 		  server.publishBuildInfo buildInfo
 	    }
     }
-    }
+    
   }
 }
