@@ -61,10 +61,12 @@ pipeline {
     
     stage('Upload Artifactory'){
     steps{
+	    node() {
       def server = 'jfrog'
 		  def rtDocker = Artifactory.docker server: server
 		  def buildInfo = rtDocker.push 'http://52.172.31.12:8081/artifactory', 'example-repo-local'
 		  server.publishBuildInfo buildInfo
+	    }
     }
     }
   }
