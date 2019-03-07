@@ -58,5 +58,14 @@ pipeline {
         sh 'docker run --name=node-app -d -p 3000:3000 $registry:$BUILD_NUMBER &'
       }
     }
+    
+    stage('Upload Artifactory'){
+    steps{
+      def server = 'jfrog'
+		  def rtDocker = Artifactory.docker server: server
+		  def buildInfo = rtDocker.push 'http://52.172.31.12:8081/artifactory', 'example-repo-local'
+		  server.publishBuildInfo buildInfo
+    }
+    }
   }
 }
