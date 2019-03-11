@@ -55,11 +55,11 @@ pipeline {
         sh 'docker rm ${containerId}'
       }
     }
-    stage('Run Container'){
+   /* stage('Run Container'){
       steps{
         sh 'docker run --name=node-app -d -p 3000:3000 $registry:$BUILD_NUMBER &'
       }
-    }
+    }*/
     
    /* stage('Upload art'){
 	    def server = 'jfrog'
