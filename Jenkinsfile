@@ -55,11 +55,11 @@ pipeline {
         sh 'docker rm ${containerId}'
       }
     }
-   /* stage('Run Container'){
+    stage('Run Container'){
       steps{
         sh 'docker run --name=node-app -d -p 3000:3000 $registry:$BUILD_NUMBER &'
       }
-    }*/
+    }
     
    /* stage('Upload art'){
 	    def server = 'jfrog'
@@ -68,7 +68,7 @@ pipeline {
 		server.publishBuildInfo buildInfo
     }*/
 	  
-	  stage('Deploy the application'){
+	  /*stage('Deploy the application'){
 	  steps{
 	  
 		  //Deploying the docker image as a service using kubernetes CD plugin
@@ -79,7 +79,7 @@ pipeline {
 			  enableConfigSubstitution: false
 			  )
 	  }
-	  }
+	  }*/
 	  
     
   }
