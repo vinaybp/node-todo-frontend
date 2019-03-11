@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetestest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernetestest
+  template:
+    metadata:
+      labels:
+        app: kubernetestest
+    spec:
+      containers:
+      - name: kubernetestest
+        image: vinay4790/testrepo:8
+        ports:
+        - containerPort: 8082
+       
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetestest
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8082
+  selector:
+    app: kubernetestest
