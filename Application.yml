@@ -29,6 +29,6 @@ spec:
   type: NodePort
   ports:
   - port: 30099
-    nodePort: 32452
+    nodePort: 30099
   selector:
     app: kubernetestest
