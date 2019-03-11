@@ -69,6 +69,7 @@ pipeline {
     }*/
 	  
 	  stage('Deploy the application')
+	  steps{
 	  {
 		  //Deploying the docker image as a service using kubernetes CD plugin
 		  //Method to deploy the tyaml file
@@ -77,6 +78,7 @@ pipeline {
 			  configs: 'Application.yml',
 			  enableConfigSubstitution: false
 			  )
+	  }
 	  }
     
   }
