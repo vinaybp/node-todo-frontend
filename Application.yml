@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: kubernetestest
+  namespace: teamUK2
 spec:
   replicas: 1
   selector:
@@ -23,6 +24,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kubernetestest
+  namespace: teamUK2
 spec:
   type: LoadBalancer
   ports:
