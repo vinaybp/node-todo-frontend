@@ -26,9 +26,9 @@ metadata:
   name: kubernetestest
   namespace: teamuk2
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 30099
-    #nodePort: 30099
+    nodePort: 32452
   selector:
     app: kubernetestest
