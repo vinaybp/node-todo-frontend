@@ -68,7 +68,7 @@ pipeline {
 		server.publishBuildInfo buildInfo
     }*/
 	  
-	  stage('Deploy the application')
+	 /* stage('Deploy the application')
 	  steps{
 	  {
 		  //Deploying the docker image as a service using kubernetes CD plugin
@@ -79,7 +79,7 @@ pipeline {
 			  enableConfigSubstitution: false
 			  )
 	  }
-	  }
+	  }*/
     
   }
 }
