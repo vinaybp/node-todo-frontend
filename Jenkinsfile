@@ -67,6 +67,17 @@ pipeline {
 		def buildInfo = rtDocker.push ('http://52.172.31.12:8081/artifactory/dockerImage', 'example-repo-local')
 		server.publishBuildInfo buildInfo
     }
+	  
+	  stage('Deploy the application')
+	  {
+		  //Deploying the docker image as a service using kubernetes CD plugin
+		  //Method to deploy the tyaml file
+		  kubernetesDeploy(
+			  kubeconfigId: 'kubeconfig',
+			  configs: 'Application.yml',
+			  enableConfigSubstitution: false
+			  )
+	  }
     
   }
 }
