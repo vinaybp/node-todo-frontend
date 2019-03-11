@@ -68,8 +68,8 @@ pipeline {
 		server.publishBuildInfo buildInfo
     }*/
 	  
-	 /* stage('Deploy the application')
-	  steps{
+	  stage('Deploy the application')
+	  
 	  {
 		  //Deploying the docker image as a service using kubernetes CD plugin
 		  //Method to deploy the tyaml file
@@ -79,7 +79,7 @@ pipeline {
 			  enableConfigSubstitution: false
 			  )
 	  }
-	  }*/
+	  
     
   }
 }
